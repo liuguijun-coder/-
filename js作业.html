@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			console.log("hello,world");
+			document.write("hello,world");
+			function getSum(arry){
+				var sum=0;
+				for(var i in arry)
+				{
+					arry[i]=parseInt(arry[i]);
+					sum+=arry[i];
+				}
+				return sum;
+			}
+			var arr = [1,5,6,7,"8",10];
+			console.log(getSum(arr));
+			var str = "can-enter-volunteer-organization";
+			function change(str){
+				var list=str.split("");
+				
+				list[0]=list[0].toUpperCase();
+				for(var i=1;i<list.length;i++)
+				{
+					if(list[i-1]=="-")
+					{
+						list[i]=list[i].toUpperCase();
+					}
+				}
+				var str1=list.join("");
+				str1=str1.replace(/-/g,"");
+				return str1;
+			}
+			console.log(change(str));
+			var arr2= ["myfirstactivity","today activity","yourActivity","activitys"];
+			var newarry=[];
+			for(var i in arr2)
+			{
+				if(arr2[i].search(/activity$/)!=-1)
+				{
+					newarry.push(arr2[i]);
+				}
+			}
+			console.log(newarry);
+			var arr3 = [ [1,2] , 3,[4,[5,[6]] , 7] ];
+			
+			function even(arr){
+			  var end=new Array();
+			  for(var i in arr)
+			  {
+				  for(var j in arr[i])
+				  {
+					  end.push(arr[i][j]);
+				  }
+			  }
+			  return end;
+			}
+			alert(even(arr3));
+			var arr4 = [{id:10,name:'kc'},{id:8,name:'hy'},
+			{id:15,name:'pipi'},{id:2,name:'mama'}]
+			function sortDef(value1,value2)
+			{
+				return value1.id-value2.id;
+			}
+			console.log(arr4.sort(sortDef));
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
