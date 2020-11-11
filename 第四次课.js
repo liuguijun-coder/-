@@ -67,3 +67,31 @@ function clone(item){
 }
 let obj22=clone(obj11);
 console.log(obj22);
+//使用Map来解决循环递归的错误
+var obj4={
+	name:"A",
+	age:16,
+	sex:"wo"
+}
+obj4.heself=obj4;
+let map=new Map();
+function clone_2(item,map)
+{
+	if(typeof item=="object")
+	{
+		let new_target=Array.isArray(item)?[]:{};
+		if(map.get(item)){
+			return map.get(item);
+		}
+		map.set(item,new_target);
+		for(var i in item){
+			new_target[i]=clone_2(item[i],map);
+		}
+		return new_target;
+	}
+	else{
+		return item;
+	}
+}
+var obj6=clone_2(obj4,map);
+console.log(obj6);
