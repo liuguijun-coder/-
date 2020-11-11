@@ -68,6 +68,7 @@ function clone(item){
 let obj22=clone(obj11);
 console.log(obj22);
 //使用Map来解决循环递归的错误
+//多使用一个Map映射来判断
 var obj4={
 	name:"A",
 	age:16,
