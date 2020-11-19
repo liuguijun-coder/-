@@ -66,6 +66,7 @@ function clone(item){
 	}
 }
 let obj22=clone(obj11);
+<<<<<<< .mine
 console.log(obj22);
 //使用Map来解决循环递归的错误
 //多使用一个Map映射来判断
@@ -89,10 +90,28 @@ function clone_2(item,map)
 			new_target[i]=clone_2(item[i],map);
 		}
 		return new_target;
-	}
-	else{
-		return item;
-	}
+=======
+console.log(obj22);
+//使用Map来解决循环递归的错误
+//多使用一个Map映射来判断
+var obj4={
+	name:"A",
+	age:16,
+	sex:"wo"
 }
-var obj6=clone_2(obj4,map);
-console.log(obj6);
+obj4.heself=obj4;
+let map=new Map();
+function clone_2(item,map)
+{
+	if(typeof item=="object")
+	{
+		let new_target=Array.isArray(item)?[]:{};
+		if(map.get(item)){
+			return map.get(item);
+		}
+		map.set(item,new_target);
+		for(var i in item){
+			new_target[i]=clone_2(item[i],map);
+		}
+		return new_target;
+>>>>>>> .theirs
