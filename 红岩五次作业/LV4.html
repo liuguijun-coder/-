@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			section{
+				width: 360px;
+				background-color: #CCCCCC;
+				margin: 100px auto;
+				padding-top: 15px;
+			}
+			section #board{
+				width: 250px;
+				height: 150px;
+				margin: auto;
+				border: 2px solid gray;
+				border-radius: 3px;
+				background-color: darkgray;
+				display: block;
+				font-size: 18px;
+				line-height: 14px;
+				color: white;
+				word-wrap: break-word;
+			}
+			button{
+				width: 100px;
+				height: 30px;
+				margin: 10px auto;
+				display: block;
+			}
+			.word{
+				display: flex;
+				width: 250px;
+				height: 25px;
+				margin: 10px auto;
+				justify-content: space-between;
+			}
+			.x{
+				width: 20px;
+				height: 20px;
+				background-color: gray;
+				color: wheat;
+				display: inline-block;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script type="text/javascript">
+		    class Message{
+				constructor(sentence1) {
+				    this.node=document.createElement("div");
+					this.node.className="word";
+					let span=document.createElement("span");
+					span.innerHTML=sentence1;
+					let i=document.createElement("button");
+					i.innerText="X";
+					i.className="x";
+					this.node.appendChild(span);
+					this.node.appendChild(i);
+					i.onclick=function(){
+						// this.parentNode
+						this.parentNode.parentNode.removeChild(this.parentNode);
+					}
+				}
+			}
+			window.onload=function(){
+				var button=document.querySelector("button");
+				var board=document.getElementById("board");
+				var sentence=document.getElementById("sentences");
+				board.flag=false;
+				board.onblur=function(){
+					if(board.innerText.search(/\d/gi))
+					{
+						board.flag=!board.flag;
+					}
+				}
+				button.onclick=function(){
+					if(board.flag)
+					{
+						let nw=new Message(board.value);
+						board.value="";
+						sentence.appendChild(nw.node);
+					}
+					board.flag=null;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<section id="MessageBoard">
+			<textarea rows="4" cols="50" placeholder="输入你的留言" id="board"></textarea>
+			 <button type="button">提交留言</button>
+			<div id="sentences">
+			</div>
+		</section>
+	</body>
+</html>

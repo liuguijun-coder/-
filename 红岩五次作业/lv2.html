@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>	
+		<style type="text/css">
+			body{
+				color: red;
+				font-size: 20px;
+				font-style: italic;
+				font-weight: bolder;
+			}
+			button{
+				display: block;
+				background-color: gainsboro;
+				font-size: 16px;
+				margin: auto;
+				margin-top: 40px;
+				margin-bottom: 40px;
+			}
+			button:focus{
+				background-color: green;
+			}
+		</style>
+		<script type="text/javascript">
+				window.onload=function(){
+					var buttons=document.getElementsByTagName("button");
+					var body=document.querySelector("body");
+					buttons[0].onclick=function(){
+						body.style.backgroundColor=randomColor();
+					}
+					buttons[1].onclick=function(){
+						body.style.fontSize=Math.random()*30+"px";
+					}
+					function randomColor(){
+						let r=parseInt(Math.random()*255);
+						let g=parseInt(Math.random()*255);
+						let b=parseInt(Math.random()*255);
+						return 	`rgba(${r},${g},${b},0.7)`;
+					}
+				}
+		</script>
+	</head>
+	<body>
+		hell0,world!!!!
+		<button type="button">改变主题颜色</button>
+		<button type="button">改变字体大小</button>
+	</body>
+
+</html>
