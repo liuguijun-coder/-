@@ -1,0 +1,45 @@
+input{
+	width: 500px;
+	height: 80px;
+	font-size: 20px;
+	line-height: 80px;
+}
+button{
+	height: 80px;
+	background-color: darkgray;
+	text-align: center;
+	line-height: 80px;
+	color: white;
+}
+#x3{
+	list-style: none;
+	width: 1314px;
+	margin: auto;
+	height: 890px;
+	overflow: auto;
+}
+#x3 li{
+	width: 100%;
+	height: 30px;
+	display: flex;
+}
+#x3 li span{
+	display:inline-block;
+	font-size: 24px;
+	color: #000000;
+	background-color: pink;
+
+}
+#x3 li span:first-child{
+	width: 20%;
+	text-align:left;
+}
+#x3 li span:nth-child(2){
+	width: 40%;
+}
+#x3 li span:nth-child(3){
+	width: 30%;
+}
+#x3 li span:nth-child(4){
+	width: 10%;
+}
